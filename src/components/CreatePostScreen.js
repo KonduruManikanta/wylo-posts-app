@@ -1,10 +1,11 @@
 // src/components/CreatePostScreen.js
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const CreatePostScreen = ({ posts, onUpdatePost, onCreatePost }) => {
   const { id } = useParams(); // Get id from URL params for editing
-  const history = useHistory();
+  //   const history = useHistory();
+  const navigate = useNavigate();
   const isEditMode = Boolean(id);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -29,7 +30,8 @@ const CreatePostScreen = ({ posts, onUpdatePost, onCreatePost }) => {
       onCreatePost({ title, content });
     }
 
-    history.push("/");
+    // history.push("/");
+    navigate("/");
   };
 
   return (
